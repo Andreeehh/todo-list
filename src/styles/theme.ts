@@ -6,6 +6,7 @@ export const theme = {
     secondaryLight: 'rgb(255, 200, 250)',
     warning: 'rgb(247, 0, 91)',
     success: 'rgb(172, 243, 157)',
+    editing: 'rgb(255, 188, 0)',
     info: 'rgb(85, 193, 255)',
     deepWhite: 'rgb(255, 255, 255)',
     white: 'rgb(250, 250, 253)',

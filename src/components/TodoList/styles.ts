@@ -21,7 +21,6 @@ export const Wrapper = styled.div`
 `;
 
 export const AddTaskDiv = styled.div`
-  ${({ theme }) => css`
     display: flex;
     flex-flow: column wrap;
     width: 100%;
@@ -29,11 +28,9 @@ export const AddTaskDiv = styled.div`
     ${TextInput} {
       width: 80%;
     }
-  `}
 `;
 
 export const HeadingDiv = styled.div`
-  ${({ theme }) => css`
     display: flex;
     flex-flow: row wrap;
     width: 100%;
@@ -41,7 +38,6 @@ export const HeadingDiv = styled.div`
     justify-content: center;
     gap: 2rem;
     ${TextInput} {
-      width: 80%;
+      width: 50%;
     }
-  `}
 `;

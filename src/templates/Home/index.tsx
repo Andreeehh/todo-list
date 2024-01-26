@@ -1,4 +1,4 @@
-import { TodoList } from 'components/TodoList';
+import { TodoList } from '../../components/TodoList';
 import * as Styled from './styles';
 
 function Home() {

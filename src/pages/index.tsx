@@ -1,4 +1,4 @@
-import Home from 'templates/Home';
+import { Home } from '@mui/icons-material';
 
 export default function Index() {
   return <Home />;

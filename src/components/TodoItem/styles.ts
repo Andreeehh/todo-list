@@ -42,10 +42,8 @@ export const Wrapper = styled.div`
 `;
 
 export const ButtonsWrapper = styled.div`
-  ${({ theme }) => css`
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-  `}
 `;
