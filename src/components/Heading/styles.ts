@@ -18,7 +18,7 @@ const titleSize = {
 };
 
 const mediaFont = (theme: DefaultTheme) => css`
-  @media ${theme.media.lteMedium} {
+  @media ${theme.media.lteOrEqMedium} {
     font-size: ${theme.font.sizes.xlarge};
   }
 `;
@@ -28,9 +28,11 @@ const titleCase = (uppercase: boolean) =>
     text-transform: ${uppercase ? 'uppercase' : 'none'};
   `;
 
-export const Title = styled.h1<Pick<HeadingProps, 'colorDark' | 'size' | 'uppercase'>>`
+export const Title = styled.h1<
+  Pick<HeadingProps, 'colorDark' | 'size' | 'uppercase'>
+>`
   ${({ theme, colorDark, size, uppercase }) => css`
-    color: ${colorDark ? theme.colors.primaryColor : theme.colors.white};
+    color: ${colorDark ? theme.colors.primary : theme.colors.white};
     ${titleSize[size](theme)};
     ${titleCase(uppercase)};
   `}
