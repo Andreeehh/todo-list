@@ -1,12 +1,12 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import { TodoList, TodoListProps } from '.';
+import { TodoList } from '.';
 
 export default {
   title: 'TodoList',
   component: TodoList,
-} as Meta<TodoListProps>;
+} as Meta;
 
-export const Template: Story<TodoListProps> = (args) => {
+export const Template: Story = (args) => {
   return (
     <div>
       <TodoList {...args} />
