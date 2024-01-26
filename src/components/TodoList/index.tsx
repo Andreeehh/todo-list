@@ -51,7 +51,7 @@ export const TodoList = () => {
   };
 
   const handleToggleEditing = () => {
-    setIsEditingName();
+    setIsEditingName(!isEditingName);
   };
 
   return (
@@ -61,9 +61,9 @@ export const TodoList = () => {
           <Heading uppercase={true} as="h2">
             To Do List
           </Heading>
-          <StyledButton.Button>
+          {/* <StyledButton.Button onClick={handleToggleEditing}>
             <EditIcon></EditIcon>
-          </StyledButton.Button>
+          </StyledButton.Button> */}
         </Styled.HeadingDiv>
         <TextInput
           name="task"
