@@ -10,6 +10,7 @@ export const TodoList = () => {
   const [task, setTask] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [taskList, setTaskList] = useState<Todo[]>([]);
+  const [isEditingName, setIsEditingName] = useState(false);
 
   useEffect(() => {
     const storedTasks = sessionStorage.getItem('tasks');
@@ -49,6 +50,10 @@ export const TodoList = () => {
     sessionStorage.setItem('tasks', JSON.stringify(updatedTaskList));
   };
 
+  const handleToggleEditing = () => {
+    setIsEditingName();
+  };
+
   return (
     <Styled.Wrapper>
       <Styled.AddTaskDiv>
@@ -56,9 +61,9 @@ export const TodoList = () => {
           <Heading uppercase={true} as="h2">
             To Do List
           </Heading>
-          {/* <StyledButton.Button>
+          <StyledButton.Button>
             <EditIcon></EditIcon>
-          </StyledButton.Button> */}
+          </StyledButton.Button>
         </Styled.HeadingDiv>
         <TextInput
           name="task"
