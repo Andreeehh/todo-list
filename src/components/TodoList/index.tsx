@@ -1,21 +1,27 @@
-import { TextInput } from 'components/TextInput';
 import * as Styled from './styles';
 import { useEffect, useState } from 'react';
-import { Todo, TodoItem } from 'components/TodoItem';
 import * as StyledButton from '../Button/styles';
-import { Heading } from 'components/Heading';
-import EditIcon from '@mui/icons-material/Edit';
+// import EditIcon from '@mui/icons-material/Edit';
+import CheckIcon from '@mui/icons-material/Check';
+import { Todo, TodoItem } from '../TodoItem';
+import { TextInput } from '../TextInput';
+import { Heading } from '../Heading';
 
 export const TodoList = () => {
   const [task, setTask] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [taskList, setTaskList] = useState<Todo[]>([]);
   const [isEditingName, setIsEditingName] = useState(false);
+  const [pageName, setPageName] = useState('To Do List');
 
   useEffect(() => {
     const storedTasks = sessionStorage.getItem('tasks');
     if (storedTasks) {
       setTaskList(JSON.parse(storedTasks));
+    }
+    const storedName = sessionStorage.getItem('page-name');
+    if (storedName) {
+      setPageName(JSON.parse(storedName));
     }
   }, []);
 
@@ -58,12 +64,33 @@ export const TodoList = () => {
     <Styled.Wrapper>
       <Styled.AddTaskDiv>
         <Styled.HeadingDiv>
-          <Heading uppercase={true} as="h2">
-            To Do List
-          </Heading>
-          {/* <StyledButton.Button onClick={handleToggleEditing}>
-            <EditIcon></EditIcon>
-          </StyledButton.Button> */}
+          {isEditingName && (
+            <TextInput
+              name="task"
+              label="Task"
+              onInputChange={(v) => {
+                setTask(v);
+                setErrorMessage('');
+              }}
+              value={task}
+              errorMessage={errorMessage}
+            />
+          )}
+          {isEditingName && (
+            <StyledButton.Button onClick={handleToggleEditing} color="success">
+              <CheckIcon></CheckIcon>
+            </StyledButton.Button>
+          )}
+          {!isEditingName && (
+            <Heading uppercase={true} as="h2">
+              {pageName}
+            </Heading>
+          )}
+          {/* {!isEditingName && (
+            <StyledButton.Button onClick={handleToggleEditing} color="editing">
+              <EditIcon></EditIcon>
+            </StyledButton.Button>
+          )} */}
         </Styled.HeadingDiv>
         <TextInput
           name="task"
