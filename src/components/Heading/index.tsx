@@ -1,14 +1,17 @@
 import * as Styled from './styles';
 
 export type HeadingProps = {
-  title?: string;
+  children: React.ReactNode;
+  colorDark?: boolean;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  size?: 'small' | 'medium' | 'big' | 'huge';
+  uppercase?: boolean;
 };
 
-export const Heading = ({ title }: HeadingProps) => {
+export const Heading = ({ children, colorDark = true, as = 'h1', size = 'huge', uppercase = false }: HeadingProps) => {
   return (
-    <Styled.Wrapper>
-      <h1>Oi</h1>
-      <p>{title}</p>
-    </Styled.Wrapper>
+    <Styled.Title colorDark={colorDark} as={as} size={size} uppercase={uppercase}>
+      {children}
+    </Styled.Title>
   );
 };

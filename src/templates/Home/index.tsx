@@ -1,7 +1,12 @@
-import { Heading } from 'components/Heading';
+import { TodoList } from 'components/TodoList';
+import * as Styled from './styles';
 
 function Home() {
-  return <Heading>Example</Heading>;
+  return (
+    <Styled.Wrapper>
+      <TodoList></TodoList>
+    </Styled.Wrapper>
+  );
 }
 
 export default Home;
